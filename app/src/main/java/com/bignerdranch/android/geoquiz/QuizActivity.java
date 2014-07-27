@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
 
 
@@ -18,7 +19,23 @@ public class QuizActivity extends Activity {
         setContentView(R.layout.activity_quiz);
 
         mTrueButton = (Button) findViewById(R.id.true_button);
+
+        //  implement button listener as an anonymous inner class
+        // the class will be used here only, so don't need to name it
+        mTrueButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Does nothing yet, but soon!
+            }
+        });
+
         mFalseButton = (Button) findViewById(R.id.false_button);
+        mFalseButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Does nothing yet, but soon!
+            }
+        });
     }
 
 
