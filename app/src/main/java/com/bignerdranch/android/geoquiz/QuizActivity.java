@@ -34,12 +34,8 @@ public class QuizActivity extends Activity {
         setContentView(R.layout.activity_quiz);
 
         mQuestionTextView = (TextView) findViewById(R.id.question_text_view);
-        // question is a resource id, not a string
-        int question = mQuestionBank[mCurrentIndex].getQuestion();
-        mQuestionTextView.setText(question);
 
         mTrueButton = (Button) findViewById(R.id.true_button);
-
         // implement button listener as an anonymous inner class
         // the class will be used here only, so don't need to name it
         mTrueButton.setOnClickListener(new View.OnClickListener() {
@@ -69,13 +65,18 @@ public class QuizActivity extends Activity {
             public void onClick(View view) {
                 // can't just mCurrentIndex++
                 mCurrentIndex = (mCurrentIndex + 1) % mQuestionBank.length;
-                // question is a resource id, not a string
-                int question = mQuestionBank[mCurrentIndex].getQuestion();
-                mQuestionTextView.setText(question);
+                updateQuestion();
             }
         });
+
+        updateQuestion();
     }
 
+    private void updateQuestion() {
+        // question is a resource id, not a string
+        int question = mQuestionBank[mCurrentIndex].getQuestion();
+        mQuestionTextView.setText(question);
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
