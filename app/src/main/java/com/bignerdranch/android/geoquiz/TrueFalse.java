@@ -4,8 +4,11 @@ package com.bignerdranch.android.geoquiz;
  * Created by stevebaker on 7/27/14.
  */
 public class TrueFalse {
-
-    // mQuestion is a resource ID, so type is int not String
+    /**
+     * mQuestion is a resource id, so type is int not String
+     * Returning id may reduce memory usage, especially if the resource is large.
+     * Here it seems like it would be clearer to change the variable name (e.g. mQuestionID) or return a string!
+     */
     private int mQuestion;
 
     private boolean mTrueQuestion;
