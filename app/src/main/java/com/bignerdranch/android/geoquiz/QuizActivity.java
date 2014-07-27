@@ -62,6 +62,18 @@ public class QuizActivity extends Activity {
                         Toast.LENGTH_SHORT).show();
             }
         });
+
+        mNextButton = (Button) findViewById(R.id.next_button);
+        mNextButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // can't just mCurrentIndex++
+                mCurrentIndex = (mCurrentIndex + 1) % mQuestionBank.length;
+                // question is a resource id, not a string
+                int question = mQuestionBank[mCurrentIndex].getQuestion();
+                mQuestionTextView.setText(question);
+            }
+        });
     }
 
 
