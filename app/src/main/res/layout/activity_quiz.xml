@@ -20,12 +20,14 @@
             android:id="@+id/true_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:padding="24dp"
             android:text="@string/true_button" />
 
         <Button
             android:id="@+id/false_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:padding="24dp"
             android:text="@string/false_button" />
 
     </LinearLayout>
@@ -39,6 +41,7 @@
         android:id="@+id/previous_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:padding="40dp"
         android:contentDescription="Previous"
         android:src="@drawable/arrow_left"
         />
@@ -47,6 +50,7 @@
         android:id="@+id/next_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:padding="40dp"
         android:contentDescription="Next"
         android:src="@drawable/arrow_right"
         />
