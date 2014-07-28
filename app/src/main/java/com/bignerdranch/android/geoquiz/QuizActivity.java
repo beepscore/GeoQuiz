@@ -34,6 +34,7 @@ public class QuizActivity extends Activity {
         setContentView(R.layout.activity_quiz);
 
         mQuestionTextView = (TextView) findViewById(R.id.question_text_view);
+        mQuestionTextView.setOnClickListener(nextListener);
 
         mTrueButton = (Button) findViewById(R.id.true_button);
         // implement button listener as an anonymous inner class
