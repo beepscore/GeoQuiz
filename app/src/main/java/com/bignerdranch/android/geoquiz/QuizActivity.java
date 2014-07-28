@@ -54,17 +54,20 @@ public class QuizActivity extends Activity {
         });
 
         mNextButton = (Button) findViewById(R.id.next_button);
-        mNextButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // can't just mCurrentIndex++
-                mCurrentIndex = (mCurrentIndex + 1) % mQuestionBank.length;
-                updateQuestion();
-            }
-        });
+        mNextButton.setOnClickListener(nextListener);
 
         updateQuestion();
     }
+
+    // http://martin.cubeactive.com/android-onclicklitener-tutorial/
+    private View.OnClickListener nextListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            // can't just increment mCurrentIndex++
+            mCurrentIndex = (mCurrentIndex + 1) % mQuestionBank.length;
+            updateQuestion();
+        }
+    };
 
     private void updateQuestion() {
         // question is a resource id, not a string
