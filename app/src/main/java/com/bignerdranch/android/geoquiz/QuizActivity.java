@@ -15,7 +15,7 @@ public class QuizActivity extends Activity {
 
     private Button mTrueButton;
     private Button mFalseButton;
-    private Button mPreviousButton;
+    private ImageButton mPreviousButton;
     private ImageButton mNextButton;
     private TextView mQuestionTextView;
 
@@ -56,7 +56,7 @@ public class QuizActivity extends Activity {
             }
         });
 
-        mPreviousButton = (Button) findViewById(R.id.previous_button);
+        mPreviousButton = (ImageButton) findViewById(R.id.previous_button);
         mPreviousButton.setOnClickListener(previousListener);
 
         mNextButton = (ImageButton) findViewById(R.id.next_button);
