@@ -14,6 +14,7 @@ public class QuizActivity extends Activity {
 
     private Button mTrueButton;
     private Button mFalseButton;
+    private Button mPreviousButton;
     private Button mNextButton;
     private TextView mQuestionTextView;
 
@@ -54,11 +55,25 @@ public class QuizActivity extends Activity {
             }
         });
 
+        mPreviousButton = (Button) findViewById(R.id.previous_button);
+        mPreviousButton.setOnClickListener(previousListener);
+
         mNextButton = (Button) findViewById(R.id.next_button);
         mNextButton.setOnClickListener(nextListener);
 
         updateQuestion();
     }
+
+    private View.OnClickListener previousListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            // keep mCurrentIndex >= 0 and within array bounds
+            // to move backwards, advance current index almost all the way through the length of the array
+            // Probably there's a more elegant way to decrement this index!
+            mCurrentIndex = (mCurrentIndex + (mQuestionBank.length - 1)) % mQuestionBank.length;
+            updateQuestion();
+        }
+    };
 
     // http://martin.cubeactive.com/android-onclicklitener-tutorial/
     private View.OnClickListener nextListener = new View.OnClickListener() {
