@@ -15,6 +15,7 @@ import android.widget.Toast;
 public class QuizActivity extends Activity {
 
     private static final String TAG = "QuizActivity";
+    private static final String KEY_INDEX = "index";
 
     private Button mTrueButton;
     private Button mFalseButton;
@@ -66,7 +67,21 @@ public class QuizActivity extends Activity {
         mNextButton = (ImageButton) findViewById(R.id.next_button);
         mNextButton.setOnClickListener(nextListener);
 
+        if (savedInstanceState != null) {
+            // if savedInstanceState doesn't have a value for KEY_INDEX, getInt returns second argument as default value
+            // https://developer.android.com/training/basics/activity-lifecycle/recreating.html
+            mCurrentIndex = savedInstanceState.getInt(KEY_INDEX, 0);
+        }
+
         updateQuestion();
+    }
+
+    // onSaveInstanceState() is called before onPause(), onStop(), onDestroy
+    @Override
+    public void onSaveInstanceState(Bundle savedInstanceState) {
+        super.onSaveInstanceState(savedInstanceState);
+        Log.i(TAG, "onSaveInstanceState");
+        savedInstanceState.putInt(KEY_INDEX, mCurrentIndex);
     }
 
     @Override
