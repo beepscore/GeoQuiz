@@ -136,6 +136,10 @@ public class QuizActivity extends Activity {
     };
 
     private void updateQuestion() {
+        // Log with exception argument shows a stack trace.
+        // Usually this is used after catching a thrown exception.
+        // For debugging purposes, create a new exception in order to see stack trace.
+        // Log.d(TAG, "Updating question text for question #" + mCurrentIndex, new Exception());
         // question is a resource id, not a string
         int question = mQuestionBank[mCurrentIndex].getQuestion();
         mQuestionTextView.setText(question);
