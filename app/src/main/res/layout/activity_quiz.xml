@@ -42,7 +42,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="40dp"
-        android:contentDescription="Previous"
+        android:contentDescription="@string/previous"
         android:src="@drawable/arrow_left"
         />
 
@@ -51,7 +51,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="40dp"
-        android:contentDescription="Next"
+        android:contentDescription="@string/next"
         android:src="@drawable/arrow_right"
         />
 
