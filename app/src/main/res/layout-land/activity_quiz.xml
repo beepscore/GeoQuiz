@@ -1,6 +1,8 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent"
+    android:gravity="bottom"
+    android:orientation="vertical" >
 
     <TextView
         android:id="@+id/question_text_view"
@@ -13,7 +15,7 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical|center_horizontal"
+        android:layout_gravity="center_horizontal"
         android:orientation="horizontal" >
 
         <Button
@@ -32,6 +34,14 @@
 
     </LinearLayout>
 
+    <Button
+        android:id="@+id/cheat_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:padding="24dp"
+        android:text="@string/cheat_button" />
+
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -43,7 +53,7 @@
             android:id="@+id/previous_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="40dp"
+            android:padding="24dp"
             android:contentDescription="Previous"
             android:src="@drawable/arrow_left"
             android:layout_gravity="left"
@@ -53,7 +63,7 @@
             android:id="@+id/next_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="40dp"
+            android:padding="24dp"
             android:contentDescription="Next"
             android:src="@drawable/arrow_right"
             android:layout_gravity="right"
@@ -61,4 +71,4 @@
 
     </LinearLayout>
 
-</FrameLayout>
+</LinearLayout>
