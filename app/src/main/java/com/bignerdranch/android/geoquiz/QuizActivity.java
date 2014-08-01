@@ -3,6 +3,7 @@ package com.bignerdranch.android.geoquiz;
 import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -155,7 +156,9 @@ public class QuizActivity extends Activity {
             messageResId = R.string.incorrect_toast;
         }
         // this refers to View.OnClickListener
-        Toast.makeText(this, messageResId, Toast.LENGTH_SHORT).show();
+        Toast toast = Toast.makeText(this, messageResId, Toast.LENGTH_SHORT);
+        toast.setGravity(Gravity.TOP | Gravity.CENTER, 0, 100);
+        toast.show();
     }
 
     @Override
