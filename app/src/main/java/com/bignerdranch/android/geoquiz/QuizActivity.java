@@ -1,6 +1,7 @@
 package com.bignerdranch.android.geoquiz;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
@@ -67,7 +68,8 @@ public class QuizActivity extends Activity {
         mCheatButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //TODO start CheatActivity
+                Intent intent = new Intent(QuizActivity.this, CheatActivity.class);
+                startActivity(intent);
             }
         });
 
