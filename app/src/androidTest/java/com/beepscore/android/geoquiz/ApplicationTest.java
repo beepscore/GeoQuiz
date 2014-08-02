@@ -1,4 +1,4 @@
-package com.bignerdranch.android.geoquiz;
+package com.beepscore.android.geoquiz;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.bignerdranch.android.geoquiz" >
+    package="com.beepscore.android.geoquiz" >
 
     <application
         android:allowBackup="true"
@@ -8,7 +8,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name=".QuizActivity"
+            android:name="com.beepscore.android.geoquiz.QuizActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -17,7 +17,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".CheatActivity"
+            android:name="com.beepscore.android.geoquiz.CheatActivity"
             android:label="@string/app_name" >
         </activity>
     </application>

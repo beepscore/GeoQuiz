@@ -1,4 +1,4 @@
-package com.bignerdranch.android.geoquiz;
+package com.beepscore.android.geoquiz;
 
 /**
  * Created by stevebaker on 7/27/14.
