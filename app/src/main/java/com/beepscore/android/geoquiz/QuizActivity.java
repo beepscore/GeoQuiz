@@ -70,7 +70,10 @@ public class QuizActivity extends Activity {
             public void onClick(View view) {
                 Intent intent = new Intent(QuizActivity.this, CheatActivity.class);
                 boolean answerIsTrue = mQuestionBank[mCurrentIndex].isTrueQuestion();
+                // attach extra to intent
+                // in extra add key-value pair
                 intent.putExtra(CheatActivity.EXTRA_ANSWER_IS_TRUE, answerIsTrue);
+                // startActivity sends intent outside of app, to Android OS ActivityManager.
                 startActivity(intent);
             }
         });
