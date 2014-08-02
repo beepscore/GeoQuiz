@@ -74,7 +74,10 @@ public class QuizActivity extends Activity {
                 // in extra add key-value pair
                 intent.putExtra(CheatActivity.EXTRA_ANSWER_IS_TRUE, answerIsTrue);
                 // startActivity sends intent outside of app, to Android OS ActivityManager.
-                startActivity(intent);
+                //startActivity(intent);
+                // Use startActivityForResult() to get information back from child activity.
+                int resultCode = 0;
+                startActivityForResult(intent, resultCode);
             }
         });
 
