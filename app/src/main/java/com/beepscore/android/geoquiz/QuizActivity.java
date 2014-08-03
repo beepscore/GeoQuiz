@@ -49,7 +49,7 @@ public class QuizActivity extends Activity {
         restoreFromSavedState(savedInstanceState);
 
         mVersionTextView = (TextView) findViewById(R.id.version_text_view);
-        mVersionTextView.setText("version");
+        mVersionTextView.setText("API level " + android.os.Build.VERSION.SDK_INT);
 
         mQuestionTextView = (TextView) findViewById(R.id.question_text_view);
         mQuestionTextView.setOnClickListener(nextListener);
