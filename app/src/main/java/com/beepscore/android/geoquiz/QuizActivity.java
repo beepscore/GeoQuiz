@@ -26,6 +26,7 @@ public class QuizActivity extends Activity {
     private ImageButton mPreviousButton;
     private ImageButton mNextButton;
     private TextView mQuestionTextView;
+    private TextView mVersionTextView;
 
     // MVC model
     private TrueFalse[] mQuestionBank = new TrueFalse[] {
@@ -46,6 +47,9 @@ public class QuizActivity extends Activity {
         setContentView(R.layout.activity_quiz);
 
         restoreFromSavedState(savedInstanceState);
+
+        mVersionTextView = (TextView) findViewById(R.id.version_text_view);
+        mVersionTextView.setText("version");
 
         mQuestionTextView = (TextView) findViewById(R.id.question_text_view);
         mQuestionTextView.setOnClickListener(nextListener);
