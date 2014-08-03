@@ -25,9 +25,7 @@ public class CheatActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cheat);
 
-        if (savedInstanceState != null) {
-            mAnswerShown = savedInstanceState.getBoolean(EXTRA_ANSWER_SHOWN, false);
-        }
+        restoreFromSavedState(savedInstanceState);
         setAnswerShownResult(mAnswerShown);
 
         // use an Intent and extra to pass information into CheatActivity
@@ -53,7 +51,13 @@ public class CheatActivity extends Activity {
         });
     }
 
-    // onSaveInstanceState() is called before onPause(), onStop(), onDestroy
+    private void restoreFromSavedState(Bundle savedInstanceState) {
+        if (savedInstanceState != null) {
+            mAnswerShown = savedInstanceState.getBoolean(EXTRA_ANSWER_SHOWN, false);
+        }
+    }
+
+    // onSaveInstanceState() is called before onPause(), onStop(), onDestroy()
     @Override
     public void onSaveInstanceState(Bundle savedInstanceState) {
         super.onSaveInstanceState(savedInstanceState);
