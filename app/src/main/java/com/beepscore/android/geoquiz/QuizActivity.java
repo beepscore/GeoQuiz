@@ -36,6 +36,7 @@ public class QuizActivity extends Activity {
     };
 
     private int mCurrentIndex = 0;
+    private boolean mIsCheater;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -198,4 +199,15 @@ public class QuizActivity extends Activity {
         }
         return super.onOptionsItemSelected(item);
     }
+
+    @Override
+    // Android OS ActivityManager calls this to pass result
+    // from child activity back to parent activity
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (data == null) {
+            return;
+        }
+        mIsCheater = data.getBooleanExtra(CheatActivity.EXTRA_ANSWER_SHOWN, false);
+    }
+
 }
