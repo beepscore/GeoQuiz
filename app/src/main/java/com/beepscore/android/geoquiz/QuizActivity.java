@@ -18,6 +18,7 @@ public class QuizActivity extends Activity {
 
     private static final String TAG = "QuizActivity";
     private static final String KEY_INDEX = "index";
+    private static final String IS_CHEATER = "is_cheater";
 
     private Button mTrueButton;
     private Button mFalseButton;
@@ -92,6 +93,7 @@ public class QuizActivity extends Activity {
             // if savedInstanceState doesn't have a value for KEY_INDEX, getInt returns second argument as default value
             // https://developer.android.com/training/basics/activity-lifecycle/recreating.html
             mCurrentIndex = savedInstanceState.getInt(KEY_INDEX, 0);
+            mIsCheater = savedInstanceState.getBoolean(IS_CHEATER, false);
         }
 
         updateQuestion();
@@ -103,6 +105,7 @@ public class QuizActivity extends Activity {
         super.onSaveInstanceState(savedInstanceState);
         Log.i(TAG, "onSaveInstanceState");
         savedInstanceState.putInt(KEY_INDEX, mCurrentIndex);
+        savedInstanceState.putBoolean(IS_CHEATER, mIsCheater);
     }
 
     @Override
