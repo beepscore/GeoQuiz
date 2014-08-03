@@ -18,11 +18,17 @@ public class CheatActivity extends Activity {
 
     private TextView mAnswerTextView;
     private Button mShowAnswer;
+    private boolean mAnswerShown;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cheat);
+
+        if (savedInstanceState != null) {
+            mAnswerShown = savedInstanceState.getBoolean(EXTRA_ANSWER_SHOWN, false);
+        }
+        setAnswerShownResult(mAnswerShown);
 
         // use an Intent and extra to pass information into CheatActivity
         // getIntent() returns intent passed in from Android OS ActivityManager
@@ -31,9 +37,6 @@ public class CheatActivity extends Activity {
         mAnswerIsTrue = getIntent().getBooleanExtra(EXTRA_ANSWER_IS_TRUE, false);
 
         mAnswerTextView = (TextView) findViewById(R.id.answerTextView);
-
-        // Answer will not be shown until the user presses the showAnswerButton
-        setAnswerShownResult(false);
 
         mShowAnswer = (Button)findViewById(R.id.showAnswerButton);
         mShowAnswer.setOnClickListener(new View.OnClickListener() {
@@ -44,9 +47,17 @@ public class CheatActivity extends Activity {
                 } else {
                     mAnswerTextView.setText(R.string.false_button);
                 }
-                setAnswerShownResult(true);
+                mAnswerShown = true;
+                setAnswerShownResult(mAnswerShown);
             }
         });
+    }
+
+    // onSaveInstanceState() is called before onPause(), onStop(), onDestroy
+    @Override
+    public void onSaveInstanceState(Bundle savedInstanceState) {
+        super.onSaveInstanceState(savedInstanceState);
+        savedInstanceState.putBoolean(EXTRA_ANSWER_SHOWN, mAnswerShown);
     }
 
     private void setAnswerShownResult(boolean isAnswerShown) {
