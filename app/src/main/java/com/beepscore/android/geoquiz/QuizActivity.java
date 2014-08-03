@@ -142,6 +142,7 @@ public class QuizActivity extends Activity {
             // to move backwards, advance current index almost all the way through the length of the array
             // Probably there's a more elegant way to decrement this index!
             mCurrentIndex = (mCurrentIndex + (mQuestionBank.length - 1)) % mQuestionBank.length;
+            mIsCheater = false;
             updateQuestion();
         }
     };
@@ -152,6 +153,7 @@ public class QuizActivity extends Activity {
         public void onClick(View view) {
             // can't just increment mCurrentIndex++
             mCurrentIndex = (mCurrentIndex + 1) % mQuestionBank.length;
+            mIsCheater = false;
             updateQuestion();
         }
     };
@@ -170,12 +172,16 @@ public class QuizActivity extends Activity {
         boolean answerIsTrue = mQuestionBank[mCurrentIndex].isTrueQuestion();
         int messageResId = 0;
 
-        if (userPressedTrue == answerIsTrue) {
-            messageResId = R.string.correct_toast;
+        if (mIsCheater) {
+            messageResId = R.string.judgment_toast;
         } else {
-            messageResId = R.string.incorrect_toast;
+            if (userPressedTrue == answerIsTrue) {
+                messageResId = R.string.correct_toast;
+            } else {
+                messageResId = R.string.incorrect_toast;
+            }
         }
-        // this refers to View.OnClickListener
+        // 'this' refers to View.OnClickListener
         Toast toast = Toast.makeText(this, messageResId, Toast.LENGTH_SHORT);
         toast.setGravity(Gravity.TOP | Gravity.CENTER, 0, 100);
         toast.show();
