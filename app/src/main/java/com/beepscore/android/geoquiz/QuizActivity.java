@@ -76,8 +76,8 @@ public class QuizActivity extends Activity {
                 // startActivity sends intent outside of app, to Android OS ActivityManager.
                 //startActivity(intent);
                 // Use startActivityForResult() to get information back from child activity.
-                int resultCode = 0;
-                startActivityForResult(intent, resultCode);
+                int requestCode = 0;
+                startActivityForResult(intent, requestCode);
             }
         });
 
