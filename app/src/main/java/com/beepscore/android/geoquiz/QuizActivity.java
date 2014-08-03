@@ -45,12 +45,7 @@ public class QuizActivity extends Activity {
         Log.d(TAG, "onCreate() called");
         setContentView(R.layout.activity_quiz);
 
-        if (savedInstanceState != null) {
-            // if savedInstanceState doesn't have a value for KEY_INDEX, getInt returns second argument as default value
-            // https://developer.android.com/training/basics/activity-lifecycle/recreating.html
-            mCurrentIndex = savedInstanceState.getInt(KEY_INDEX, 0);
-            mIsCheater = savedInstanceState.getBoolean(IS_CHEATER, false);
-        }
+        restoreFromSavedState(savedInstanceState);
 
         mQuestionTextView = (TextView) findViewById(R.id.question_text_view);
         mQuestionTextView.setOnClickListener(nextListener);
@@ -97,6 +92,15 @@ public class QuizActivity extends Activity {
         mNextButton.setOnClickListener(nextListener);
 
         updateQuestion();
+    }
+
+    private void restoreFromSavedState(Bundle savedInstanceState) {
+        if (savedInstanceState != null) {
+            // if savedInstanceState doesn't have a value for KEY_INDEX, getInt returns second argument as default value
+            // https://developer.android.com/training/basics/activity-lifecycle/recreating.html
+            mCurrentIndex = savedInstanceState.getInt(KEY_INDEX, 0);
+            mIsCheater = savedInstanceState.getBoolean(IS_CHEATER, false);
+        }
     }
 
     // onSaveInstanceState() is called before onPause(), onStop(), onDestroy
